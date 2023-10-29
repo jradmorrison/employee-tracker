@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
 const { addDepartment, addEmployee, addRole } = require('./utils/create');
-const { viewAllDepartments, viewAllRoles, viewAllEmployees, viewEmployeesByDepartment, viewEmployeesByManager, viewTotalUtilizedBudgetOfDepartment } = require('./utils/read');
+const { viewAllDepartments, viewAllRoles, viewAllEmployees, viewTotalUtilizedBudgetOfDepartment } = require('./utils/read');
 const { updateEmployeeRole, updateEmployeeManager } = require('./utils/update');
 const { deleteDepartmentsRolesEmployees } = require('./utils/delete');
 const connection = require('./utils/connection');
@@ -27,8 +27,6 @@ const init = async () => {
                 "Add an employee",
                 "Update an employee role",
                 "Update employee manager",
-                "View Employees by Manager",
-                "View Employees by Department",
                 "Delete Departments | Roles | Employees",
                 "View the total utilized budget of a department",
                 "Exit",
@@ -68,20 +66,12 @@ const init = async () => {
                     updateEmployeeManager();
                     init();
                     break;
-                case "View Employees by Manager":
-                    viewEmployeesByManager();
-                    init();
-                    break;
-                case "View Employees by Department":
-                    viewEmployeesByDepartment();
-                    init();
-                    break;
                 case "Delete Departments | Roles | Employees":
                     deleteDepartmentsRolesEmployees();
                     init();
                     break;
                 case "View the total utilized budget of a department":
-                    viewTotalUtilizedBudgetOfDepartment();
+                    console.table(await viewTotalUtilizedBudgetOfDepartment(db));
                     init();
                     break;
                 case "Exit":
