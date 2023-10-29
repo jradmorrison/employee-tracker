@@ -10,8 +10,6 @@ let db;
 const connect = async () => db = await connection();
 connect();
 
-
-
 const init = async () => {
     inquirer
         .prompt({
@@ -47,28 +45,25 @@ const init = async () => {
                     init();
                     break;
                 case "Add a department":
-                    addDepartment();
+                    await addDepartment(db);
                     init();
                     break;
                 case "Add a role":
-                    addRole();
+                    await addRole(db);
                     init();
                     break;
                 case "Add an employee":
-                    addEmployee();
+                    await addEmployee(db);
                     init();
                     break;
                 case "Update an employee role":
-                    updateEmployeeRole();
-                    init();
+                    updateEmployeeRole(db);
                     break;
                 case "Update employee manager":
-                    updateEmployeeManager();
-                    init();
+                    updateEmployeeManager(db);
                     break;
                 case "Delete Departments | Roles | Employees":
-                    deleteDepartmentsRolesEmployees();
-                    init();
+                    deleteDepartmentsRolesEmployees(db);
                     break;
                 case "View the total utilized budget of a department":
                     console.table(await viewTotalUtilizedBudgetOfDepartment(db));
@@ -81,6 +76,5 @@ const init = async () => {
             }
         })
 }
-
 
 init();
