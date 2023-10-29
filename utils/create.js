@@ -23,7 +23,7 @@ const addDepartment = async (db) => {
 const addRole = async (db) => {
     
     let [departments] = await db.query('SELECT * FROM department;');
-    console.log(departments);
+
     const addRoleQuestions = [
         {
             type: 'input',
@@ -55,6 +55,41 @@ const addRole = async (db) => {
     })
 };
 
-const addEmployee = async (db) => {};
+const addEmployee = async (db) => {
+// todo: roles and managers choices come back as undefined, but log out just fine
+    let [managers] = await db.query('SELECT id, CONCAT(first_name, " ", last_name) AS name FROM employee');
+    let [roles] = await db.query('SELECT id, title FROM role');
+
+    console.log(roles, managers);
+    const employeeQuestions = [
+            {
+                type: 'input',
+                name: 'firstName',
+                message: 'What is the First Name of the new employee?'
+            },
+            {
+                type: 'input',
+                name: 'lastName',
+                message: 'What is the Last Name of the new employee?'
+            },
+            {
+                type: 'list',
+                name: 'role_id',
+                message: 'Pick their role:',
+                choices: roles
+            },
+            {
+                type: 'list',
+                name: 'manager_id',
+                message: 'Pick their Manager:',
+                choices: managers
+            }
+    ]
+
+    await inquirer.prompt(employeeQuestions)
+    .then((res) => {
+        console.log(res);
+    })
+};
 
 module.exports = {addDepartment, addRole, addEmployee};
