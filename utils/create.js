@@ -62,7 +62,6 @@ const addEmployee = async (db) => {
     // const [roles] = await db.query('SELECT id, title FROM role');
     const roles = await getData(db, 'role');
 
-    console.log(roles, managers);
     const employeeQuestions = [
             {
                 type: 'input',

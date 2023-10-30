@@ -9,7 +9,7 @@ const connection = require('./utils/connection');
 let db;
 const connect = async () => db = await connection();
 connect();
-// todo: still need to write update functions and delete functions, need to finish addEmployee function
+// todo: still need to write update functions and delete functions
 const init = async () => {
     inquirer
         .prompt({
