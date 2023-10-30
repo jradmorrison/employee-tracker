@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
 const { addDepartment, addEmployee, addRole } = require('./utils/create');
-const { viewAllDepartments, viewAllRoles, viewAllEmployees, viewTotalUtilizedBudgetOfDepartment } = require('./utils/read');
+const { viewTotalUtilizedBudgetOfDepartment, viewData } = require('./utils/read');
 const { updateEmployeeRole} = require('./utils/update');
 const connection = require('./utils/connection');
 
@@ -30,15 +30,15 @@ const init = async () => {
         .then(async (choice) => {
             switch (choice.action) {
                 case "View all departments":
-                    console.table(await viewAllDepartments(db));
+                    console.table(await viewData(db, 'department'));
                     init();
                     break;
                 case "View all roles":
-                    console.table(await viewAllRoles(db));
+                    console.table(await viewData(db, 'role'));
                     init();
                     break;
                 case "View all employees":
-                    console.table(await viewAllEmployees(db));
+                    console.table(await viewData(db, 'employee'));
                     init();
                     break;
                 case "Add a department":
