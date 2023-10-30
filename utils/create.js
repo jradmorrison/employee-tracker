@@ -118,4 +118,4 @@ const getData = async (db, req) => {
     return choices;
 }
 
-module.exports = {addDepartment, addRole, addEmployee};
+module.exports = {addDepartment, addRole, addEmployee, getData};
