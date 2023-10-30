@@ -32,6 +32,5 @@ const updateEmployeeRole = async (db) => {
     });
 };
 
-const updateEmployeeManager = async (db) => {};
 
-module.exports = {updateEmployeeRole, updateEmployeeManager}
+module.exports = {updateEmployeeRole};

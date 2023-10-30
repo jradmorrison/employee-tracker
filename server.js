@@ -2,14 +2,13 @@ const inquirer = require('inquirer');
 
 const { addDepartment, addEmployee, addRole } = require('./utils/create');
 const { viewAllDepartments, viewAllRoles, viewAllEmployees, viewTotalUtilizedBudgetOfDepartment } = require('./utils/read');
-const { updateEmployeeRole, updateEmployeeManager } = require('./utils/update');
-const { deleteDepartmentsRolesEmployees } = require('./utils/delete');
+const { updateEmployeeRole} = require('./utils/update');
 const connection = require('./utils/connection');
 
 let db;
 const connect = async () => db = await connection();
 connect();
-// todo: still need to write update functions and delete functions
+
 const init = async () => {
     inquirer
         .prompt({
@@ -24,8 +23,6 @@ const init = async () => {
                 "Add a role",
                 "Add an employee",
                 "Update an employee role",
-                "Update employee manager",
-                "Delete Departments | Roles | Employees",
                 "View the total utilized budget of a department",
                 "Exit",
             ]
@@ -59,13 +56,6 @@ const init = async () => {
                 case "Update an employee role":
                     await updateEmployeeRole(db);
                     init();
-                    break;
-                case "Update employee manager":
-                    await updateEmployeeManager(db);
-                    init();
-                    break;
-                case "Delete Departments | Roles | Employees":
-                    deleteDepartmentsRolesEmployees(db);
                     break;
                 case "View the total utilized budget of a department":
                     console.table(await viewTotalUtilizedBudgetOfDepartment(db));
