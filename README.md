@@ -36,6 +36,8 @@
 
   <p align="center">
     A simple CLI application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+    <br><br>
+    <a href="https://drive.google.com/file/d/1k8aslAOAJsRAgQufLTjNy7-pUbrzD5l1/view">Watch a demo of this app being used!</a>
   </p>
 </div>
 

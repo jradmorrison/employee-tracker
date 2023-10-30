@@ -45,7 +45,6 @@ const addRole = async (db) => {
     await inquirer.prompt(addRoleQuestions)
     .then((res) => {
         let dep_id = departments.find((department) => department.name === res.dep_id).id;
-        console.log(dep_id);
 
         const query = `INSERT INTO role (title, salary, department_id)
         VALUES ("${res.title}", ${res.salary}, ${dep_id});`

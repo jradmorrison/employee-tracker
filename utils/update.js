@@ -32,5 +32,4 @@ const updateEmployeeRole = async (db) => {
     });
 };
 
-
 module.exports = {updateEmployeeRole};
