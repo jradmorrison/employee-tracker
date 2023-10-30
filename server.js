@@ -57,10 +57,12 @@ const init = async () => {
                     init();
                     break;
                 case "Update an employee role":
-                    updateEmployeeRole(db);
+                    await updateEmployeeRole(db);
+                    init();
                     break;
                 case "Update employee manager":
-                    updateEmployeeManager(db);
+                    await updateEmployeeManager(db);
+                    init();
                     break;
                 case "Delete Departments | Roles | Employees":
                     deleteDepartmentsRolesEmployees(db);
