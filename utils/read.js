@@ -1,20 +1,8 @@
-const viewAllDepartments = async (db) => {
-    const query = 'SELECT * FROM department;';
+const viewData = async (db, table) => {
+    const query = `SELECT * FROM ${table};`;
     const [res] = await db.query(query);
     return res;
-};
-
-const viewAllRoles = async (db) => {
-    const query = 'SELECT * FROM role;';
-    const [res] = await db.query(query);
-    return res;
-};
-
-const viewAllEmployees = async (db) => {
-    const query = 'SELECT * FROM employee;';
-    const [res] = await db.query(query);
-    return res;
-};
+}
 
 const viewTotalUtilizedBudgetOfDepartment = async (db) => {
     const query = `SELECT 
@@ -32,4 +20,4 @@ order by Budget DESC`
     return res;
 };
 
-module.exports = {viewAllDepartments, viewAllRoles, viewAllEmployees, viewTotalUtilizedBudgetOfDepartment};
+module.exports = { viewTotalUtilizedBudgetOfDepartment, viewData };
