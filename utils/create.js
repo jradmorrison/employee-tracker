@@ -56,9 +56,11 @@ const addRole = async (db) => {
 };
 
 const addEmployee = async (db) => {
-// todo: roles and managers choices come back as undefined, but log out just fine
-    let [managers] = await db.query('SELECT id, CONCAT(first_name, " ", last_name) AS name FROM employee');
-    let [roles] = await db.query('SELECT id, title FROM role');
+
+    // const [managers] = await db.query('SELECT id, CONCAT(first_name, " ", last_name) AS name FROM employee');
+    const managers = await getData(db, 'employee');
+    // const [roles] = await db.query('SELECT id, title FROM role');
+    const roles = await getData(db, 'role');
 
     console.log(roles, managers);
     const employeeQuestions = [
@@ -88,8 +90,33 @@ const addEmployee = async (db) => {
 
     await inquirer.prompt(employeeQuestions)
     .then((res) => {
-        console.log(res);
+        
+        let role_id = res.role_id.split(':')[0].trim();
+        let manager_id = res.manager_id.split(':')[0].trim();
+
+        const query = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
+        VALUES ("${res.firstName}", "${res.lastName}", ${role_id}, ${manager_id})`
+
+        db.execute(query);
+        console.log('Employee added');
     })
 };
+
+const getData = async (db, req) => {
+    let [res] = [];
+    let choices = [];
+
+    switch(req) {
+        case 'role':
+            [res] = await db.execute('SELECT * FROM role');
+            choices = res.map((res) => `${res.id}: ${res.title}`);
+            break;
+        case 'employee':
+            [res] = await db.execute('SELECT * FROM employee');
+            choices = res.map((res) => `${res.id}: ${res.first_name} ${res.last_name}`);
+            break;
+    }
+    return choices;
+}
 
 module.exports = {addDepartment, addRole, addEmployee};
