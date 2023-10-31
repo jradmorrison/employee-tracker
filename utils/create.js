@@ -14,7 +14,7 @@ const addDepartment = async (db) => {
         const query = `INSERT INTO department (name)
         VALUES ("${res.departmentName}");`
 
-        db.execute(query);
+        db.query(query);
         console.log('Department added');
 
     })
@@ -49,7 +49,7 @@ const addRole = async (db) => {
         const query = `INSERT INTO role (title, salary, department_id)
         VALUES ("${res.title}", ${res.salary}, ${dep_id});`
 
-        db.execute(query);
+        db.query(query);
         console.log('Role added');
     })
 };
@@ -95,7 +95,7 @@ const addEmployee = async (db) => {
         const query = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
         VALUES ("${res.firstName}", "${res.lastName}", ${role_id}, ${manager_id})`
 
-        db.execute(query);
+        db.query(query);
         console.log('Employee added');
     })
 };
@@ -106,11 +106,11 @@ const getData = async (db, req) => {
 
     switch(req) {
         case 'role':
-            [res] = await db.execute('SELECT * FROM role');
+            [res] = await db.query('SELECT * FROM role');
             choices = res.map((res) => `${res.id}: ${res.title}`);
             break;
         case 'employee':
-            [res] = await db.execute('SELECT * FROM employee');
+            [res] = await db.query('SELECT * FROM employee');
             choices = res.map((res) => `${res.id}: ${res.first_name} ${res.last_name}`);
             break;
     }

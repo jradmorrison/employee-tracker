@@ -27,7 +27,7 @@ const updateEmployeeRole = async (db) => {
         const role_id = res.role_id.split(':')[0].trim();
 
         const query = `UPDATE employee SET role_id = ? WHERE id = ?;`
-        db.execute(query, [role_id, emp_id]);
+        db.query(query, [role_id, emp_id]);
         console.log('Employee role updated!');
     });
 };
