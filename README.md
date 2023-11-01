@@ -90,6 +90,17 @@ Once that's done:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Tech Stack
+
+<a name="tech-stack"></a>
+![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=%23black)
+![Node.js](https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=%23white)
+![Inquirer](https://img.shields.io/badge/Inquirer-%230472B6.svg?style=for-the-badge&logo=inquirer&logoColor=%23white)
+![MySQL](https://img.shields.io/badge/MySQL-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=%23white)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
