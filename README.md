@@ -21,8 +21,6 @@
 ![Commits][commits-shield]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -113,9 +111,13 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Jared Morrison -  jmorrison.m44@gmail.com
+<h4>Email - <a href="mailto:jmorrison.m44@gmail.com">jmorrison.m44@gmail.com</a></h4>
 
-Project Link: [https://github.com/jradmorrison/employee-tracker](https://github.com/jradmorrison/employee-tracker)
+<h4>GitHub - <a href="https://github.com/jradmorrison">jradmorrison</a></h4>
+
+<h4>LinkdIn - <a href="https://linkedin.com/in/jradmorrison">jradmorrison</a></h4>
+
+Project Link - [Employee Tracker](https://github.com/jradmorrison/employee-tracker)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
